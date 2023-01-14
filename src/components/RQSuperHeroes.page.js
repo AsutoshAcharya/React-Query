@@ -9,7 +9,7 @@ const fetchSuperHeroes = () => {
 };
 
 export const RQSuperHeroesPage = () => {
-  const [polling, setPolling] = useState(false);
+  const [polling, setPolling] = useState(null);
   const onSuccess = (data) => {
     if (data.data.length > 3) {
       setPolling(true);
@@ -27,10 +27,9 @@ export const RQSuperHeroesPage = () => {
       // refetchOnMount: true,
       // refetchOnWindowFocus: false,
 
-      refetchInterval: !polling ? false : 3000,
+      refetchInterval: polling === null ? 3000 : false,
       // refetchIntervalInBackground: true,
-
-      enabled: false,
+      // enabled:false
       onSuccess,
       onError,
     }
