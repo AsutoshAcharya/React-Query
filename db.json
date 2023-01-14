@@ -2,18 +2,18 @@
   "superheroes": [
     {
       "id": 1,
-      "name": "Batman",
-      "alterEgo": "Bruce Wayne"
+      "name": "Spider-man",
+      "alterEgo": "Tom Holland"
     },
     {
       "id": 2,
-      "name": "Superman",
-      "alterEgo": "Clark Kent"
+      "name": "Iron-man",
+      "alterEgo": "Robert Downey Jr."
     },
     {
       "id": 3,
-      "name": "Wonder Woman",
-      "alterEgo": "Princess   Diana "
+      "name": "Thor",
+      "alterEgo": "Chris Hemsworth  "
     }
   ]
 }
