@@ -1,5 +1,6 @@
 import { useQuery } from "react-query";
 import axios from "axios";
+import { useState } from "react";
 
 //polling fetching data in regular intervals
 
@@ -8,8 +9,12 @@ const fetchSuperHeroes = () => {
 };
 
 export const RQSuperHeroesPage = () => {
-  const onSuccess = () => {
-    console.log("perform side effect after data fetching");
+  const [polling, setPolling] = useState(false);
+  const onSuccess = (data) => {
+    if (data.data.length > 3) {
+      setPolling(true);
+    }
+    console.log("perform side effect after data fetching", data);
   };
   const onError = () => {
     console.log("perform side effect after encountering error");
@@ -19,9 +24,10 @@ export const RQSuperHeroesPage = () => {
     fetchSuperHeroes,
     {
       // staleTime: 0,
-      refetchOnMount: true,
+      // refetchOnMount: true,
       // refetchOnWindowFocus: false,
-      // refetchInterval: 3000,
+
+      refetchInterval: !polling ? false : 3000,
       // refetchIntervalInBackground: true,
 
       enabled: false,
