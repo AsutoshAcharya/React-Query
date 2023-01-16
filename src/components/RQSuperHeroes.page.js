@@ -11,10 +11,11 @@ const fetchSuperHeroes = () => {
 export const RQSuperHeroesPage = () => {
   const [polling, setPolling] = useState(null);
   const onSuccess = (data) => {
-    if (data.data.length > 3) {
+    if (data?.data?.length > 3) {
       setPolling(true);
     }
     console.log("perform side effect after data fetching", data);
+    // console.log(data);
   };
   const onError = () => {
     console.log("perform side effect after encountering error");
@@ -27,11 +28,18 @@ export const RQSuperHeroesPage = () => {
       // refetchOnMount: true,
       // refetchOnWindowFocus: false,
 
-      refetchInterval: polling === null ? 3000 : false,
+      // refetchInterval: polling === null ? 3000 : false,
       // refetchIntervalInBackground: true,
       // enabled:false
       onSuccess,
       onError,
+      select: (data) => {
+        const superHeroNames = data.data.map((hero) => {
+          return hero.name;
+        });
+        console.log(superHeroNames);
+        return superHeroNames;
+      },
     }
   );
   // console.log(isFetching);
@@ -66,7 +74,7 @@ export const RQSuperHeroesPage = () => {
           display: "flex",
         }}
       >
-        {data?.data.map((hero) => {
+        {/* {data?.data.map((hero) => {
           return (
             <div
               key={hero.name}
@@ -79,6 +87,22 @@ export const RQSuperHeroesPage = () => {
               }}
             >
               {hero.name}
+            </div>
+          );
+        })} */}
+        {data.map((heroname) => {
+          return (
+            <div
+              key={heroname}
+              style={{
+                backgroundColor: "green",
+                border: "none",
+                padding: "10px",
+                borderRadius: "10px",
+                color: "white",
+              }}
+            >
+              {heroname}
             </div>
           );
         })}
