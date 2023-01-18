@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSuperHeroesData } from "../hooks/useSuperHeroesData";
-
+import { Link } from "react-router-dom";
 //polling fetching data in regular intervals
 
 export const RQSuperHeroesPage = () => {
@@ -49,10 +49,10 @@ export const RQSuperHeroesPage = () => {
           display: "flex",
         }}
       >
-        {/* {data?.data.map((hero) => {
+        {data?.data.map((hero) => {
           return (
             <div
-              key={hero.name}
+              key={hero.id}
               style={{
                 backgroundColor: "green",
                 border: "none",
@@ -61,11 +61,11 @@ export const RQSuperHeroesPage = () => {
                 color: "white",
               }}
             >
-              {hero.name}
+              <Link to={`/rq-super-heroes/${hero.id}`}> {hero.name}</Link>
             </div>
           );
-        })} */}
-        {data?.map((heroname) => {
+        })}
+        {/* {data?.map((heroname) => {
           return (
             <div
               key={heroname}
@@ -80,7 +80,7 @@ export const RQSuperHeroesPage = () => {
               {heroname}
             </div>
           );
-        })}
+        })} */}
       </div>
     </>
   );

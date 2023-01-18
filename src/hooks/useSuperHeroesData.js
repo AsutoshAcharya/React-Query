@@ -15,12 +15,12 @@ export const useSuperHeroesData = (onSuccess, onError) => {
     enabled: false,
     onSuccess,
     onError,
-    select: (data) => {
-      const superHeroNames = data.data.map((hero) => {
-        return hero.name;
-      });
-      console.log(superHeroNames);
-      return superHeroNames;
-    },
+    // select: (data) => {
+    //   const superHeroNames = data.data.map((hero) => {
+    //     return hero.name;
+    //   });
+    //   console.log(superHeroNames);
+    //   return superHeroNames;
+    // },
   });
 };
