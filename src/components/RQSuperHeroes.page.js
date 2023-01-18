@@ -29,6 +29,8 @@ export const RQSuperHeroesPage = () => {
     e.preventDefault();
     const hero = { name, alterEgo };
     addHero(hero);
+    name("");
+    alterEgo("");
   };
   if (isLoading) {
     return <h2>Loading ...</h2>;

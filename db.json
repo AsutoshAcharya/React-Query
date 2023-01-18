@@ -24,6 +24,16 @@
       "name": "captain america",
       "alterEgo": "Chris Evans",
       "id": 5
+    },
+    {
+      "name": "dr strange",
+      "alterEgo": "Benedict Cumberbatch",
+      "id": 6
+    },
+    {
+      "name": "Natasha",
+      "alterEgo": "Scarlet Johnson",
+      "id": 7
     }
   ]
 }
